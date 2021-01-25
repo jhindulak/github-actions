@@ -23,6 +23,7 @@ jobs:
   download-file:
     name: Download File
     runs-on: ubuntu-latest
+    needs: create-file
 
     steps:
       - name: Download file

@@ -1,0 +1,36 @@
+name: Test GH Actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-file:
+    name: Create File
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create File
+        run: echo hello > world.txt
+
+      - name: Upload File
+        uses: actions/upload-artifact@v2
+        with:
+          name: test
+          path: ./world.txt
+
+  download-file:
+    name: Download File
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download file
+        uses: actions/download-artifact
+        with:
+          name: test
+          path: .
+
+      - run: ls
+
+      - run: cat ./world.txt

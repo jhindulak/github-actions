@@ -14,11 +14,20 @@ jobs:
       - name: Create File
         run: echo hello > world.txt
 
+      - name: Create file in directory
+        run: echo hello > ./directory/foo.txt
+
       - name: Upload File
         uses: actions/upload-artifact@v2
         with:
           name: test
           path: ./world.txt
+
+      - name: Upload file with directory
+        uses: actions/upload-artifact@v2
+        with:
+          name: directory-test
+          path: ./directory/foo.txt
 
   download-file:
     name: Download File
@@ -32,6 +41,19 @@ jobs:
           name: test
           path: ./world.txt
 
+      - name: Download file with directory
+        uses: actions/download-artifact@v2
+        with:
+          name: directory-test
+          path: ./foo.txt
+
+      - name: Download file with directory - NO PATH
+        uses: actions/download-artifact@v2
+        with:
+          name: directory-test
+
       - run: ls
 
       - run: cat ./world.txt
+
+      - run: cat ./foo.txt

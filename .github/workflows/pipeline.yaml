@@ -52,10 +52,10 @@ jobs:
           name: directory-test
           path: ./foo.txt
 
-      - name: Download file with directory - NO PATH
-        uses: actions/download-artifact@v2
-        with:
-          name: directory-test
+      # - name: Download file with directory - NO PATH
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: directory-test
 
       - run: ls
 

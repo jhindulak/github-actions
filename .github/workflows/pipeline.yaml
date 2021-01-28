@@ -44,13 +44,6 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: test
-          path: ./world.txt
-
-      # - name: Download file with directory
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     name: directory-test
-      #     path: ./foo.txt
 
       - name: Download file with directory - NO PATH
         uses: actions/download-artifact@v2
@@ -58,8 +51,6 @@ jobs:
           name: directory-test
 
       - run: ls
-
-      - run: ls ./directory
 
       - run: cat ./world.txt
 

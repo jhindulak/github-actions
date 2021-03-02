@@ -14,4 +14,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - run: docker pull alpine
+      - run: docker pull docker.artifactory.onbase.net/hylandsoftware/github-action-runner:2.1
